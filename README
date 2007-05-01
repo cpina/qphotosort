@@ -1,0 +1,10 @@
+Dependencies to execute qphotosort (Debian packages):
+
+imagemagick
+python-qt4
+exif
+libjpeg-progs
+
+Please, refer to documentation/index.html for information
+
+2006

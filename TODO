@@ -1,0 +1,48 @@
+-Security: check what happends with file names with ", possible to do "shell injection"?
+-Add a flag for "debug mode" (show what is executing, arguments, etc.)
+-Better handling on empty fields
+-After press Process (in resize tab), source field is selected
+
+-DONE Traceback: tab 4 in on_tabWidget_currentChanged
+-DONE Basic readme and install
+-DONE Write better help
+
+-(Partially done...) Only allow numbers in offset fields
+
+-----------------
+-Not reproduceable:
+
+* Al 'Time Offset' hi poses alguna cosa que no li agrada, no fa res i no
+avisa. Quan l'he executat en una cosola diu:
+
+Traceback (most recent call last):
+ File
+"/home/angel/Desktop/photosort-05-11-2006/photosort/thread_handle.py",
+line 58, in run
+   offset = int(self.offset[index])
+ValueError: invalid literal for int(): 10-00-00_00:00:00
+
+perque al posar-hi 10-00-00:00:00 per que incrementés 10 dies (o 10anys)
+no li ha agradat. Valdria la pena que mostres algun avis del tipus "El
+format per Time Offset ha de ser:". El mateix si no has definit cap carpeta.
+----------------
+
+-Search a repository place (maybe lafarga upc)
+
+DONE -Take out the "here..."
+
+DONE -Delete the source directory button?
+DONE -If all help dialogs are the same: only one dialog with diferent texts
+DONE -When loading: check if convert and other external programs are in the PATH, suggest solutions
+DONE (check) -No directory selected: error, warning
+DONE -License in each file and LICENSE file
+DONE -Add tooltips
+DONE -Add help buttons
+DONE -Add programatically menu with Help-About
+DONE -Add translation support
+
+DONE -Add resource file
+DONE -Add layouts
+DONE -Make the buttons to select directories to work
+
+DONE -Afegir suport per canviar suffix, llavors peta el offset (16-05-2006)

@@ -1,0 +1,1230 @@
+<ui version="4.0" >
+ <class>Form</class>
+ <widget class="QWidget" name="Form" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>563</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="sizePolicy" >
+   <sizepolicy>
+    <hsizetype>0</hsizetype>
+    <vsizetype>0</vsizetype>
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize" >
+   <size>
+    <width>563</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="maximumSize" >
+   <size>
+    <width>563</width>
+    <height>480</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy" >
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle" >
+   <string>qphotosort</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>521</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" >
+    <property name="margin" >
+     <number>0</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item row="0" column="1" >
+     <widget class="QPushButton" name="process" >
+      <property name="toolTip" >
+       <string>Starts the process</string>
+      </property>
+      <property name="text" >
+       <string>Process</string>
+      </property>
+      <property name="icon" >
+       <iconset resource="icons.qrc" >:/icons/button_ok.png</iconset>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" >
+     <widget class="QProgressBar" name="progressBar" >
+      <property name="value" >
+       <number>0</number>
+      </property>
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QSplitter" name="splitter" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation" >
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget" >
+   <property name="geometry" >
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>521</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="minimumSize" >
+    <size>
+     <width>521</width>
+     <height>391</height>
+    </size>
+   </property>
+   <property name="maximumSize" >
+    <size>
+     <width>521</width>
+     <height>391</height>
+    </size>
+   </property>
+   <property name="currentIndex" >
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="merge_directories" >
+    <attribute name="title" >
+     <string>Merge directories</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>11</x>
+       <y>257</y>
+       <width>114</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_8" >
+        <property name="text" >
+         <string>Create links: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>merge_link</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="merge_link" >
+        <property name="toolTip" >
+         <string>Select if you want to create links and not copies</string>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>501</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_7" >
+        <property name="text" >
+         <string>Destination directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>merge_destination</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="merge_destination" >
+        <property name="toolTip" >
+         <string>Destination directory</string>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="merge_destination_button" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="merge_delete_destination" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="merge_help" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>57</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="minimumSize" >
+      <size>
+       <width>57</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>57</width>
+       <height>27</height>
+      </size>
+     </property>
+     <property name="text" >
+      <string>Help</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="merge_delete_sources" >
+     <property name="geometry" >
+      <rect>
+       <x>366</x>
+       <y>330</y>
+       <width>144</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Delete all sources</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+     </property>
+    </widget>
+    <widget class="QTableView" name="merge_sources" >
+     <property name="geometry" >
+      <rect>
+       <x>11</x>
+       <y>11</y>
+       <width>489</width>
+       <height>240</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="resize" >
+    <attribute name="title" >
+     <string>Resize</string>
+    </attribute>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>401</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_5" >
+        <property name="minimumSize" >
+         <size>
+          <width>113</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>113</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>New prefix: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>resize_newprefix</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="resize_newprefix" >
+        <property name="toolTip" >
+         <string>Write if you want to add some new prefix. It can be blank</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>471</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label" >
+        <property name="text" >
+         <string>Source directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>resize_source</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="resize_source" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>7</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip" >
+         <string>Directory with source photos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="resize_source_button" >
+        <property name="minimumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="resize_delete_source" >
+        <property name="minimumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>Delete files</string>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>401</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_2" >
+        <property name="text" >
+         <string>New size: </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3" >
+        <property name="maximumSize" >
+         <size>
+          <width>20</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>X: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>resize_x</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="resize_x" >
+        <property name="toolTip" >
+         <string>New maximum X</string>
+        </property>
+        <property name="maximum" >
+         <number>999999999</number>
+        </property>
+        <property name="minimum" >
+         <number>1</number>
+        </property>
+        <property name="value" >
+         <number>800</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4" >
+        <property name="maximumSize" >
+         <size>
+          <width>20</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>Y: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>resize_y</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="resize_y" >
+        <property name="toolTip" >
+         <string>New maximum Y</string>
+        </property>
+        <property name="maximum" >
+         <number>999999999</number>
+        </property>
+        <property name="minimum" >
+         <number>1</number>
+        </property>
+        <property name="value" >
+         <number>800</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="Line" name="line" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>267</y>
+       <width>501</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>481</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="2" >
+       <widget class="QPushButton" name="resize_destination_button" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" >
+       <widget class="QLineEdit" name="resize_destination" >
+        <property name="toolTip" >
+         <string>Destination directory (has to exist) with resized photos</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="label_6" >
+        <property name="text" >
+         <string>Destination directory: </string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" >
+       <widget class="QPushButton" name="resize_delete_destination" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="resize_help" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>57</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Help</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab" >
+    <attribute name="title" >
+     <string>Renumerate</string>
+    </attribute>
+    <widget class="QPushButton" name="renumerate_help" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>57</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Help</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>267</y>
+       <width>501</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>471</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_12" >
+        <property name="text" >
+         <string>Source directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>renumerate_source</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="renumerate_source" >
+        <property name="sizePolicy" >
+         <sizepolicy>
+          <hsizetype>7</hsizetype>
+          <vsizetype>0</vsizetype>
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="toolTip" >
+         <string>Directory with source photos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="renumerate_source_button" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="renumerate_delete_source" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>401</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_13" >
+        <property name="minimumSize" >
+         <size>
+          <width>113</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>113</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>New basename: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>renumerate_basename</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="renumerate_basename" >
+        <property name="toolTip" >
+         <string>New basename of photos</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>481</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="label_14" >
+        <property name="text" >
+         <string>Destination directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>renumerate_destination</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" >
+       <widget class="QPushButton" name="renumerate_select_destination_button" >
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2" >
+       <widget class="QLineEdit" name="renumerate_destination" >
+        <property name="toolTip" >
+         <string>Destination directory. Has to exist</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4" >
+       <widget class="QPushButton" name="renumerate_delete_destination" >
+        <property name="maximumSize" >
+         <size>
+          <width>30</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_2" >
+    <attribute name="title" >
+     <string>Rotate</string>
+    </attribute>
+    <widget class="QPushButton" name="rotate_help" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>57</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Help</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+     </property>
+    </widget>
+    <widget class="Line" name="line_3" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>267</y>
+       <width>501</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>401</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_17" >
+        <property name="minimumSize" >
+         <size>
+          <width>113</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>113</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>New prefix: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>rotate_newprefix</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="rotate_newprefix" >
+        <property name="toolTip" >
+         <string>Prefix to add to photo names. It can be blank</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>471</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_15" >
+        <property name="text" >
+         <string>Source directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>rotate_source</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="rotate_source" >
+        <property name="toolTip" >
+         <string>Directory with source photos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rotate_source_button" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rotate_delete_source" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>290</y>
+       <width>481</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QGridLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item row="0" column="1" >
+       <widget class="QLineEdit" name="rotate_destination" >
+        <property name="toolTip" >
+         <string>Destination directory. Has to exist</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" >
+       <widget class="QPushButton" name="rotate_delete_destination" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/button_cancel.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QLabel" name="label_16" >
+        <property name="text" >
+         <string>Destination directory: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>rotate_destination</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2" >
+       <widget class="QPushButton" name="rotate_destination_button" >
+        <property name="text" >
+         <string/>
+        </property>
+        <property name="icon" >
+         <iconset resource="icons.qrc" >:/icons/fileopen.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="tab_3" >
+    <attribute name="title" >
+     <string>Time calc</string>
+    </attribute>
+    <widget class="QPushButton" name="time_help" >
+     <property name="geometry" >
+      <rect>
+       <x>10</x>
+       <y>330</y>
+       <width>57</width>
+       <height>27</height>
+      </rect>
+     </property>
+     <property name="text" >
+      <string>Help</string>
+     </property>
+     <property name="icon" >
+      <iconset resource="icons.qrc" >:/icons/help.png</iconset>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>60</y>
+       <width>318</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_10" >
+        <property name="minimumSize" >
+         <size>
+          <width>148</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>Real time: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>time_real_time</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateTimeEdit" name="time_real_time" >
+        <property name="toolTip" >
+         <string>Time that photo should be</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>471</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_9" >
+        <property name="minimumSize" >
+         <size>
+          <width>148</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>Photo time: </string>
+        </property>
+        <property name="buddy" >
+         <cstring>time_photo_time</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QDateTimeEdit" name="time_photo_time" >
+        <property name="toolTip" >
+         <string>Original time of photo</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="time_select" >
+        <property name="minimumSize" >
+         <size>
+          <width>0</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>16777215</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>Select a photo</string>
+        </property>
+        <property name="text" >
+         <string>Select a photo</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget" >
+     <property name="geometry" >
+      <rect>
+       <x>20</x>
+       <y>90</y>
+       <width>401</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QLabel" name="label_11" >
+        <property name="minimumSize" >
+         <size>
+          <width>148</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text" >
+         <string>Offset (seconds): </string>
+        </property>
+        <property name="buddy" >
+         <cstring>time_offset</cstring>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="time_offset" >
+        <property name="minimumSize" >
+         <size>
+          <width>162</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>162</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>How many seconds will be added to photo</string>
+        </property>
+        <property name="inputMask" >
+         <string>9999999999999999999999999999; </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="time_export" >
+        <property name="minimumSize" >
+         <size>
+          <width>0</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="maximumSize" >
+         <size>
+          <width>16777215</width>
+          <height>26</height>
+         </size>
+        </property>
+        <property name="toolTip" >
+         <string>Copies offset seconds to "Merge directory" selected row</string>
+        </property>
+        <property name="text" >
+         <string>Export</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>merge_sources</tabstop>
+  <tabstop>merge_link</tabstop>
+  <tabstop>merge_destination</tabstop>
+  <tabstop>merge_delete_destination</tabstop>
+  <tabstop>merge_help</tabstop>
+  <tabstop>merge_delete_sources</tabstop>
+  <tabstop>process</tabstop>
+  <tabstop>resize_source</tabstop>
+  <tabstop>resize_delete_source</tabstop>
+  <tabstop>resize_x</tabstop>
+  <tabstop>resize_y</tabstop>
+  <tabstop>resize_newprefix</tabstop>
+  <tabstop>resize_destination</tabstop>
+  <tabstop>resize_destination_button</tabstop>
+  <tabstop>resize_help</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>renumerate_source</tabstop>
+  <tabstop>renumerate_delete_source</tabstop>
+  <tabstop>renumerate_basename</tabstop>
+  <tabstop>renumerate_destination</tabstop>
+  <tabstop>renumerate_select_destination_button</tabstop>
+  <tabstop>renumerate_help</tabstop>
+  <tabstop>time_help</tabstop>
+  <tabstop>rotate_source</tabstop>
+  <tabstop>rotate_delete_source</tabstop>
+  <tabstop>rotate_newprefix</tabstop>
+  <tabstop>rotate_destination</tabstop>
+  <tabstop>rotate_delete_destination</tabstop>
+  <tabstop>rotate_help</tabstop>
+  <tabstop>time_export</tabstop>
+  <tabstop>time_photo_time</tabstop>
+  <tabstop>time_select</tabstop>
+  <tabstop>time_real_time</tabstop>
+  <tabstop>time_offset</tabstop>
+ </tabstops>
+ <resources>
+  <include location="icons.qrc" />
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,15 @@
+BRIEF1
+======
+qphotosort is an application to help you to organize the photos. The main purpose is to merge several directories to a single destination, copying or linking the photos with new name based on Exif information. This solves a common problem: having different directories, with different photos from same places but not sorted in any way. Using qphotosort you will have a single directory, with all photos named in YEAR-MONTH-DAY:HH:MM:SS way, making it easy to watch because sorted alphabetically are also sorted chronologically.
+
+Other capabilities: help for calculating which offset has to be added to Exif data (some people don't set up the date/time in camera), resize photos, rotate photos and renumerate photos.
+
+qphotosort can be used in command line mode or graphic mode and has been programmed using Python, Qt4 and uses external programs such as ImageMagic, Exif or libjpeg-libs.
+
+BRIEF2
+======
+qphotosort is an application to help you to organize your photos. The main purpose is to merge several directories to single destination, copying or linking the photos based on date of Exif information. 
+
+Other capabilities are: help for calculating offset to be added to Exif time, resize one directory of photos, rotate or renumearate.
+
+qphotosort can be used in command line mode or graphic mode and has been programmed using Python, Qt4 and uses external programs such as ImageMagic, Exif or libjpeg-libs.

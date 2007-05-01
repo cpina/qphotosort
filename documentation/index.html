@@ -1,0 +1,116 @@
+<HTML>
+<HEAD>
+<TITLE>Documentation of qphotosort 0.1</TITLE>
+</HEAD>
+<BODY>
+<H1>Table of contents</H1>
+<UL>
+<LI><A HREF="#introduction">Introduction</A>
+<LI><A HREF="#installation"><B>Installation/download</B></A>
+<LI><A HREF="#graphical_interface">Graphical interface use</A>
+<LI><A HREF="#command_line">Command line use</A>
+<LI><A HREF="#miscellaneous">Miscellaneous</A>
+<LI><A HREF="#license">License</A>
+</UL>
+
+<A NAME="introduction"><H1>Introduction</H1></A>
+It is possible to use qphotosort in <B>graphic interface</B> or <B>command line</B> mode. It is recommended to use the graphical interface though.<P>
+
+The current state of the program is beta. I encourage you to backup your photos before work with qphotosort. Anyway, I (and some friends) have been using long time before release without any problem. There is some small issues that can be improved (cosmetic details, translate to catalan, etc.). I will do it in the future.<P>
+
+qphotosort has been programmed using Python, Qt4 and using external programs. The license is GPL 2.0 or later. The application is modular and this is the reason that can be used in graphic interface or command line (using the same core).<P>
+
+A brief overview of qphotosort functionality below:
+
+<H2>Merge directories</H2>
+The main purpose of qphotosort is to organize chronologically a collection of photos. This kind of problem is really common: a group of friends go on an excursion and each friend has his own photos, with diferent digital cameras. If you want to watch the photos using different ways, programs, web, etc. you will find it horrible because photos are not chronologically sorted. Usually, most applications first show of X person, then photos of Y person and so on. Using qphotosort will allow us to change the name of photos in order to have it in uniform way.<P>
+In qphotosort it is also possible to add some directories in a list, and then qphotosort will pick each photo and copy (or link) with a new name: year-month-day-hour:min:sec-suffix.JPG. Thanks to that feature, we will have all photos in the same directory and correctly sorted (as all applications sorts photos by name, at least).
+
+It is not possible to use the date of the files because this date is easily lost (copying photos, backups, CD's, etc.).
+
+There are some applicatoins that allow watching photos in a chronologically way based on Exif date. Unfortunately, that doesn't happen in all applications, photo albums, etc.
+
+qphotosort also allows you to add offset in some directory because some people don't set up the date of the camera correctly. It also allows you to calculate this offset.<P>
+you can add a suffix to the new photo name indicating the name of the person who took it. <P>
+
+<H2>Other functions</H2>
+qphotosort also includes a functionality to <B>resize</B> the photos from one directory. It calls "convert" program from the ImageMagick package.<P>
+
+It also includes a system to <B>rotate</B> photos if the information is available in Exif fields (it depends of the camera). It will modify Exif field to be coherent with new photo-position.
+
+Finally qphotosort can <B>renumerate</B> photos. For example, imagine that you have one directory with some photos (like "hello.jpg", "kids.jpg", "balloons.jpg"). Using "renumearate" function you will be able to turn those strange names into "party-001.jpg", "party-002.jpg", "party-003.jpg".
+
+<A NAME="installation"><H1>Installation/download</H1></A>
+You don't need to be root to install qphotosort (it is just necessary to install some dependencies). Install qphotosort will not copy files all across your system.<P>
+
+1.- Download the file <A HREF="http://pinux.info/qphotosort/files/qphotosort-0.1beta.tar.gz">http://pinux.info/qphotosort/files/qphotosort-0.1beta.tar.gz</A><P>
+
+2.- Decompress: gunzip qphotosort-0.1.tar.gz ; tar -xvf qphotosort-0.1.tar<P>
+
+3.- Install the following packages from your distribution:
+python-qt4 imagemagick exif libjpeg-progs. Without imagemagick, exif and libjpeg-progs you will be able to use "Merge Directories" functionality (not rotate, resize, etc.)<P>
+
+4.- Go to qphotosort directory and execute: ./qphotosort.py<P>
+
+Welcome!
+
+<A NAME="graphical_interface"><H1>Graphic interface use</H1></A>
+The first window:<BR>
+<IMG SRC="http://pinux.info/qphotosort/image1.png"><BR>
+Here you can add directories (writing the whole path or double clicking to have a dialog). In suffix column, the suffix that will be added to the photo name. In offset column, how many seconds will be added (or substracted) from Exif date/time.<P>
+If you need to calculate how many seconds has to be added, press on last tab:
+<IMG SRC="http://pinux.info/qphotosort/image4.png"><BR>
+Select a photo and write the "Real time". Then click on "Export" and this time will be copied to the selected field. Remember to select which field do you want to "export" this number!. For example: <BR>
+<IMG SRC="http://pinux.info/qphotosort/image5.png"><P>
+
+A screenshot of rotate tab:<BR>
+<IMG SRC="http://pinux.info/qphotosort/image2.png"><P>
+
+And, the last screenshot of resize tab:<BR>
+<IMG SRC="http://pinux.info/qphotosort/image3.png"><P>
+
+Anytime, if you leave the mouse pointer over a field, you will get some "tip".
+
+<A NAME="command_line"><H1>Command line use</H1></A>
+There are <B>some missing options</B> in the command line wrapper (for example, add an offset, the tool to help to calculate the offset or make links and not copies). Currently, photosort is <B>not giving information</B> about the progress in command line.<P>
+
+If there are any users that request a better command line support (more information, add missing options) drop a mail (carles AT pina.cat) and I will be glad to do it.<P>
+
+Moreover qphotosort has been more tested in graphic interface mode than in command line mode (but the core functions are the same)<P>
+
+You have to be in qphotosort directory (or add qphotosort directory to path, etc.) I write some examples, the syntax is very easy (and limited):
+<PRE>
+cd ~/bin/qphotosort
+
+#list of options:
+./photosort.py
+
+#Merge fotos1 and fotos2, destination is /tmp/test
+./photosort.py --merge --source1=/mnt/dades/fotos2 --source2=/mnt/dades/fotos1 --destination=/tmp/test/
+
+#Resize the photos of one directory (photos will keep the proportion)
+./photosort.py --resize --size=400x400  --source=/mnt/dades/fotos1/ --destination=/tmp/
+
+#Rename the photos (renumerate)
+./photosort.py --rename --source=/mnt/dades/fotos1 --destination=/tmp/test --newname=YY
+
+#Rotate the photos
+./photosort.py --rotate --source=/mnt/dades/fotos1/ --destination=/tmp
+</PRE>
+
+<A NAME="miscellaneous"><H1>Miscellaneous</H1></A>
+If anybody has any suggestions, ideas, bugs, etc. drop me a mail. If there is a bug, try to send as much information as you can<BR>
+
+If you have any question, feel free to ask. If you find this program usefull, feel free to say it too!<BR>
+My mail address is carles AT pina.cat<P>
+
+If I need a mailing list, bug track system, etc. I will search some place to upload it. It is a little time expensive, so my apologizes to have qphotosort just inside a Wordpress, while I don't need anything more powerful.<P>
+
+A public thanks to <A HREF="http://franhp.blogspot.com">fran</A> to correct all documentation! Anyway, if there is some mistake probably I have introduced it after his revision :-)
+
+<A NAME="license"><H1>License</H1></A>
+qphotosort license is GPL 2.0 or later<P>
+qphotosort uses other 3rd party programs, all of them are available using free licenses.<P>
+
+</BODY>
+</HTML>
