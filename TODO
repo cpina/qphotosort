@@ -1,3 +1,7 @@
+-Spaces in directory name or file: rotate fails (and probably others)
+-Accents in directories/files: fails too (merge, at least)
+-Security: probably is possible to escape and execute commands with photo names (Bash escaping in photo names)
+
 -Security: check what happends with file names with ", possible to do "shell injection"?
 -Add a flag for "debug mode" (show what is executing, arguments, etc.)
 -Better handling on empty fields
