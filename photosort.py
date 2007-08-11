@@ -53,7 +53,12 @@ class mergeFiles:
 
 	def next_name(self,destination):
 		if os.path.exists(destination):
-			(dirName,fileName) = os.path.split(destination)
+			#TODO: str(destination) would be better before?
+			#It is a class 'class 'PyQt4.QtCore.QString',
+			#os.path.split is not handling correctly but
+			#os.path.exists yes (depends of Qt version?
+			#before 2008-August Debian stable was working fine...
+			(dirName,fileName) = os.path.split(str(destination))
 			(fileBaseName,fileExtension) = os.path.splitext(fileName)
 		
 			fitxerPatro = re.compile('(\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})_(\d+)(\..*)')
@@ -61,6 +66,7 @@ class mergeFiles:
 
 			if primer:
 				num = primer.group(2)
+				print "num",num
 				num2 = int(num)+1
 				#next name by date
 				return(self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
