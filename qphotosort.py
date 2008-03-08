@@ -109,9 +109,9 @@ class MainWindow(QtGui.QMainWindow):
 			self.enable[3]=False
 
 		exif=os.system("exif > /dev/null 2> /dev/null")
-		if exif!=0:
+		if exif!=256:
 			#rotate not working
-			QtGui.QMessageBox.warning(self,self.tr("Error"),self.tr("jpegtran not found in your PATH. You will not be able to use rotate feature. Solution: install exif package"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
+			QtGui.QMessageBox.warning(self,self.tr("Error"),self.tr("exif not found in your PATH. You will not be able to use rotate feature. Solution: install exif package"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
 			self.enable[3]=False
 	
 	def on_merge_sources_doubleClicked(self,index):
