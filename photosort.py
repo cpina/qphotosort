@@ -87,7 +87,7 @@ class mergeFiles:
 		#http://home.cfl.rr.com/genecash/digital_camera/EXIF.py
 		f=open(foto,'rb')
 		try:
-			tags=EXIF.process_file(f)
+			tags=EXIF.process_file(f, details=False, stop_tag='DateTimeOriginal')
 		except:
 			(dirName,fileName) = os.path.split(foto)
 			(fileBaseName,fileExtension) = os.path.splitext(fileName)
@@ -156,7 +156,7 @@ def get_date2(foto):
 	#http://home.cfl.rr.com/genecash/digital_camera/EXIF.py
 	f=open(foto,'rb')
 	try:
-		tags=EXIF.process_file(f)
+		tags=EXIF.process_file(f,details=False, stop_tag='DateTimeOriginal')
 	except:
 		(dirName,fileName) = os.path.split(foto)
 		(fileBaseName,fileExtension) = os.path.splitext(fileName)
@@ -174,7 +174,7 @@ def get_orientation(foto):
 	#http://home.cfl.rr.com/genecash/digital_camera/EXIF.py
 	f=open(foto,'rb')
 	try:
-		tags=EXIF.process_file(f)
+		tags=EXIF.process_file(f,details=False, stop_tag='Image Orientation')
 	except:
 		return 0
 	
