@@ -41,7 +41,7 @@ class mergeFiles:
 		(dirName,fileName) = os.path.split(file)
 		(fileBaseName,fileExtension) = os.path.splitext(fileName)
 	
-		destination = dest_directory+'/'+dest+suffix+'.JPG'
+		destination = dest_directory+'/'+dest+suffix+'.jpg'
 		destination = self.next_name(destination)
 
 		if symb_links == 1:
@@ -66,14 +66,14 @@ class mergeFiles:
 			#fitxerPatro = re.compile('(\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})_(\d+)(\..*)')
 			#primer = fitxerPatro.match(fileName)
 
-			destination=dirName+'/'+fileBaseName+"_"+".JPG"
+			destination=dirName+'/'+fileBaseName+"_"+".jpg"
 
 			#if primer:
 				#num = primer.group(2)
 				#print "num",num
 				#num2 = int(num)+1
 				##next name by date
-				#return(self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
+				#return(self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".jpg"))
 			#else:
 				#fitxerPatro = re.compile('(.*)_(\d+)(\..*)')
 				#primer = fitxerPatro.match(fileName)
@@ -81,9 +81,9 @@ class mergeFiles:
 					#num=primer.group(2)
 					#num2=int(num)+1
 					##no date, but we will not overwrite
-					#return (self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
+					#return (self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".jpg"))
 				##new _ name...
-				#return(self.next_name(dirName+'/'+fileBaseName+"_1.JPG"))
+				#return(self.next_name(dirName+'/'+fileBaseName+"_1.jpg"))
 		return destination
 	
 		#return destination

@@ -33,7 +33,7 @@ class Help(QtGui.QDialog):
 
 		if action=="merge":
 			title_frame="Merge"
-			text="Combines photos from different directories to one destination. The new name is based on date+time, making it easy to sort chronogically. It can copy the photos or just link the photos from the destination folder to the source directories. The destination names are based on Exif data and time (avoiding to overwrite photos) and the photo suffix.<P><U>Directory:</U> List of directories. Double click in directory field to search a directory<BR> <U>Photo suffix:</U> Suffix to add after date+time.<BR> <U>Time Offset:</U>Seconds to add in Exif time. Accept only integers, positive or negatives."
+			text="Combines photos from different directories to one destination. The new name is based on date+time, making it easy to sort chronogically. It can copy the photos or just link the photos from the destination folder to the source directories. The destination names are based on Exif data and time (avoiding to overwrite photos) and the photo suffix.<P><U>Directory:</U> List of directories. Double click in directory field to search a directory<BR> <U>Photo suffix:</U> Suffix to add after date+time.<BR> <U>Time Offset:</U>Seconds to add in Exif time. Accept only integers, positive or negatives.<BR> <U>Destination date format:</U> Date and time format. You can choose the order of the parameters and also the separators. Suffix and .jpg will be always the last part."
 			height=350
 
 		if action=="resize":
