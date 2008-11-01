@@ -21,7 +21,7 @@ from main import *
 # along with qphotosort; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #
-# Carles Pina i Estany <carles@pina.cat>, 2006 
+# Carles Pina i Estany <carles@pina.cat>, 2006, 2008
 
 
 class MergeThread(QtCore.QThread):
@@ -29,12 +29,13 @@ class MergeThread(QtCore.QThread):
 		self.name=name
 		apply(QtCore.QThread.__init__, (self, ) + args)
 
-	def setinfo(self,s,dest,suffix_,offset_,symb_links_):
+	def setinfo(self,s,dest,suffix_,offset_,symb_links_,file_pattern_):
 		self.a=s
 		self.destination=dest
 		self.suffix = suffix_
 		self.offset = offset_
 		self.symb_links = symb_links_
+		self.file_pattern = str(file_pattern_)
 
 	def setcomm(self,ppal):
 		self.gui= ppal #ppal == main
@@ -58,12 +59,12 @@ class MergeThread(QtCore.QThread):
 					offset = int(self.offset[index])
 				else:
 					offset = 0
-				try:
-    					c = photosort.mergeFiles(f,self.destination,self.suffix[index],offset,self.symb_links)
-				except:
-					print "Mal",RuntimeError,TypeError,NameError
-					sendInformation(0,RuntimeError,self.gui)
-					return True
+				#try:
+    				c = photosort.mergeFiles(f,self.destination,self.suffix[index],offset,self.symb_links,self.file_pattern)
+				#except:
+					#print "Mal",RuntimeError,TypeError,NameError
+					#sendInformation(0,RuntimeError,self.gui)
+					#return True
 					
 				count = count+1
 				sendInformation(1,count,self.gui)

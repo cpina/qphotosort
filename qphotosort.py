@@ -15,7 +15,7 @@
 # along with Foobar; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 # 
-# Carles Pina i Estany <carles@pina.cat>, 2006 
+# Carles Pina i Estany <carles@pina.cat>, 2006, 2008
 
 
 import sys
@@ -86,7 +86,7 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.ui.merge_sources.setColumnWidth(0,width-252)
 		#self.model.setData(self.model.index(1,0,QtCore.QModelIndex()),QtCore.QVariant("test"))
-		QtGui.QMessageBox.warning(self,self.tr("Backup"),self.tr("This is the first version. It is strongly recommended to have a backup of your photos before work with qphotosort. Please, backup your photos!"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
+		#QtGui.QMessageBox.warning(self,self.tr("Backup"),self.tr("This is the first version. It is strongly recommended to have a backup of your photos before work with qphotosort. Please, backup your photos!"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
 
 	def checkExternal(self):
 		self.enable={}
@@ -251,7 +251,7 @@ class MainWindow(QtGui.QMainWindow):
 					offsets.append(offset)
 
 			self.thread1=thread_handle.MergeThread("thread1")
-			self.thread1.setinfo(directories,str(self.ui.merge_destination.text()),suffixes,offsets,self.ui.merge_link.isChecked())
+			self.thread1.setinfo(directories,str(self.ui.merge_destination.text()),suffixes,offsets,self.ui.merge_link.isChecked(),self.ui.file_pattern.text())
 			self.thread1.setcomm(self)
 			self.thread1.start()
 
@@ -299,7 +299,7 @@ class MainWindow(QtGui.QMainWindow):
 	def eventFilter(self,object,event):
 		#TODO: save in a variable the message number and compare event.type with this variable!
 		if (event.type() == QtCore.QEvent.Type(QtCore.QEvent.User+0)):
-			QtGui.QMessageBox.warning(self,self.tr("Error"),self.tr("Error reading/writing files. Check permission of destination directory, not overwrite files, space..."),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
+			QtGui.QMessageBox.warning(self,self.tr("Error"),self.tr("Error reading/writing files or other problems. Check permission of destination directory, not overwrite files, space. You can also execute from console and check the error message"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
 			self.ui.progressBar.setRange(0,100)
 			self.ui.progressBar.setValue(0);
 			self.ui.process.setEnabled(True)

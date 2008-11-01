@@ -14,7 +14,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 # 
-# Carles Pina i Estany <carles@pina.cat> 2006
+# Carles Pina i Estany <carles@pina.cat> 2006, 2008
 
 import re
 import os
@@ -30,7 +30,9 @@ import os
 class mergeFiles:
 	"Interface to merge directory files using Exif date"
 
-	def __init__(self,file,dest_directory,suffix,offset,symb_links):
+	def __init__(self,file,dest_directory,suffix,offset,symb_links,file_pattern_="%Y-%m-%d_%H:%M:%S"):
+	        self.file_pattern = file_pattern_
+
 		#File documentation: http://www.daniweb.com/code/snippet218.html
 		fileStats=os.stat(file)
 
@@ -61,27 +63,30 @@ class mergeFiles:
 			(dirName,fileName) = os.path.split(str(destination))
 			(fileBaseName,fileExtension) = os.path.splitext(fileName)
 		
-			fitxerPatro = re.compile('(\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})_(\d+)(\..*)')
-			primer = fitxerPatro.match(fileName)
+			#fitxerPatro = re.compile('(\d{4}-\d{2}-\d{2}_\d{2}:\d{2}:\d{2})_(\d+)(\..*)')
+			#primer = fitxerPatro.match(fileName)
 
-			if primer:
-				num = primer.group(2)
-				print "num",num
-				num2 = int(num)+1
-				#next name by date
-				return(self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
-			else:
-				fitxerPatro = re.compile('(.*)_(\d+)(\..*)')
-				primer = fitxerPatro.match(fileName)
-				if primer:
-					num=primer.group(2)
-					num2=int(num)+1
-					#no date, but we will not overwrite
-					return (self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
-				#new _ name...
-				return(self.next_name(dirName+'/'+fileBaseName+"_1.JPG"))
-	
+			destination=dirName+'/'+fileBaseName+"_"+".JPG"
+
+			#if primer:
+				#num = primer.group(2)
+				#print "num",num
+				#num2 = int(num)+1
+				##next name by date
+				#return(self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
+			#else:
+				#fitxerPatro = re.compile('(.*)_(\d+)(\..*)')
+				#primer = fitxerPatro.match(fileName)
+				#if primer:
+					#num=primer.group(2)
+					#num2=int(num)+1
+					##no date, but we will not overwrite
+					#return (self.next_name(dirName+'/'+primer.group(1)+"_"+str(num2)+".JPG"))
+				##new _ name...
+				#return(self.next_name(dirName+'/'+fileBaseName+"_1.JPG"))
 		return destination
+	
+		#return destination
 
 	def get_date(self,foto,offset):
 		#http://home.cfl.rr.com/genecash/digital_camera/EXIF.py
@@ -99,7 +104,8 @@ class mergeFiles:
 		dades = f.match(j)
 		data = datetime.datetime(int(dades.group(1)),int(dades.group(2)),int(dades.group(3)),int(dades.group(4)),int(dades.group(5)),int(dades.group(6)))
 		data = data+datetime.timedelta(0,offset)
-		ret = data.strftime("%Y-%m-%d_%H:%M:%S")
+		#ret = data.strftime("%Y-%m-%d_%H:%M:%S")
+		ret = data.strftime(self.file_pattern)
 		return ret
 
 
