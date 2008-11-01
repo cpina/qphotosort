@@ -1,20 +1,23 @@
 #!/usr/bin/python
 
-# This program is free software; you can redistribute it and/or modify
+# This file is part of qphotosort
+# qphotosort: photo (JPEG) manager 
+#
+# Copyright (c) 2006, 2008
+#      Carles Pina i Estany <carles@pina.cat>
+#
+# qphotosort is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-# 
-# This program is distributed in the hope that it will be useful,
+# the Free Software Foundation; either version 3 of the License, or
+# any later version.
+#
+# qdacco is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-# 
-# Carles Pina i Estany <carles@pina.cat> 2006, 2008
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import re
 import os
