@@ -1,3 +1,7 @@
+-Show which file is processing
+-Calculate ETA
+-Show a small statistic when has finished some job (number of files rotated, elapsed time, etc.)
+
 -Spaces in directory name or file: rotate fails (and probably others)
 -Accents in directories/files: fails too (merge, at least)
 -Security: probably is possible to escape and execute commands with photo names (Bash escaping in photo names)
