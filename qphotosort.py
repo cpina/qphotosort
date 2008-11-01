@@ -315,6 +315,7 @@ class MainWindow(QtGui.QMainWindow):
 			#self.ui.progressBar.setEnabled(False)
 			self.ui.progressBar.setRange(0,100)
 			self.ui.progressBar.setValue(0)
+			QtGui.QMessageBox.information(self,self.tr("Information"),self.tr("Done!"),QtGui.QMessageBox.Ok,QtGui.QMessageBox.NoButton)
 			return True
 
 		if (event.type() == QtCore.QEvent.Type(QtCore.QEvent.User+3)):

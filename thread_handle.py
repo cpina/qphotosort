@@ -59,12 +59,12 @@ class MergeThread(QtCore.QThread):
 					offset = int(self.offset[index])
 				else:
 					offset = 0
-				#try:
-    				c = photosort.mergeFiles(f,self.destination,self.suffix[index],offset,self.symb_links,self.file_pattern)
-				#except:
-					#print "Mal",RuntimeError,TypeError,NameError
-					#sendInformation(0,RuntimeError,self.gui)
-					#return True
+				try:
+    					c = photosort.mergeFiles(f,self.destination,self.suffix[index],offset,self.symb_links,self.file_pattern)
+				except:
+					print "Mal",RuntimeError,TypeError,NameError
+					sendInformation(0,RuntimeError,self.gui)
+					return True
 					
 				count = count+1
 				sendInformation(1,count,self.gui)
