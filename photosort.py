@@ -70,7 +70,11 @@ class mergeFiles:
 			#primer = fitxerPatro.match(fileName)
 
 			destination=dirName+'/'+fileBaseName+"_"+".jpg"
+                        destination=self.next_name(destination)
 
+                        # Note: next code it was for the first release,
+                        # where I was adding a number after the photo, 
+                        # but user couldn't choose the file pattern format
 			#if primer:
 				#num = primer.group(2)
 				#print "num",num
@@ -88,8 +92,6 @@ class mergeFiles:
 				##new _ name...
 				#return(self.next_name(dirName+'/'+fileBaseName+"_1.jpg"))
 		return destination
-	
-		#return destination
 
 	def get_date(self,foto,offset):
 		#http://home.cfl.rr.com/genecash/digital_camera/EXIF.py
