@@ -1,4 +1,5 @@
--Show which file is processing
+-Renumerate: check capital and small suffix (someties is jpg, sometimes JPG)
+-Show which file's name while processing
 -Calculate ETA
 -Show a small statistic when has finished some job (number of files rotated, elapsed time, etc.)
 
